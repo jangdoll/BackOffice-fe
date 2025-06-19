@@ -1,3 +1,5 @@
+//FrameAside.tsx
+
 import { useTabStore } from "../store/tabStore";
 import { useLocation } from "react-router-dom";
 import { FiChevronDown, FiChevronRight } from "react-icons/fi";
@@ -145,9 +147,11 @@ function AccordionMenu({
 export default function FrameAside({
   selectedGnb,
   open = true,
+  headerHeight = 55, // 기본값
 }: {
   selectedGnb: string;
   open?: boolean;
+  headerHeight?: number;
 }) {
   const location = useLocation();
   const { openTab, activeKey } = useTabStore();
@@ -162,11 +166,15 @@ export default function FrameAside({
     <aside
       className={`
         w-[220px] min-h-0 bg-white border-r border-gray-200 text-gray-800 flex flex-col shadow-md select-none z-20
-        fixed md:static left-0 top-[56px] h-[calc(100vh-56px)] md:h-auto overflow-y-auto transition-all duration-200
+        fixed md:static left-0 transition-all duration-200
         ${open ? "translate-x-0" : "-translate-x-full"}
         sm:hidden md:flex
       `}
-      style={{ willChange: "transform", height: "100%" }}
+      style={{
+        willChange: "transform",
+        top: headerHeight,
+        height: `calc(100vh - ${headerHeight}px)`,
+      }}
     >
       <nav className="flex-1 pt-1 pb-6 px-2">
         {menus.length === 0

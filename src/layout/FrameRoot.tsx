@@ -12,6 +12,7 @@ const GNB_MENUS = [
 export function FrameRoot() {
   const [selectedGnb, setSelectedGnb] = useState('공통업무');
   const [asideOpen, setAsideOpen] = useState(true);
+  const [headerHeight, setHeaderHeight] = useState(55); // default 55
 
   return (
     <div className="flex flex-col w-full h-screen max-h-screen bg-gray-50 overflow-hidden">
@@ -21,13 +22,14 @@ export function FrameRoot() {
         onSelectGnb={setSelectedGnb}
         asideOpen={asideOpen}
         onToggleAside={() => setAsideOpen(v => !v)}
+        onHeaderHeightChange={setHeaderHeight}  // ← 추가
       />
       <div className="flex flex-1 min-h-0 w-full">
         {/* Aside width/visible 처리 */}
         <div
           className={`transition-all duration-300 h-full flex-shrink-0`}
           style={{
-            width: asideOpen ? 220 : 0,  // px 단위로 width 고정
+            width: asideOpen ? 220 : 0,
             minWidth: asideOpen ? 220 : 0,
             overflow: "hidden",
           }}
@@ -35,6 +37,7 @@ export function FrameRoot() {
           <FrameAside
             selectedGnb={selectedGnb}
             open={asideOpen}
+            headerHeight={headerHeight}   // ← 추가!
           />
         </div>
         {/* Content */}
