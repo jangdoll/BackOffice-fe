@@ -1,41 +1,17 @@
 // components/ProgramGrid.tsx
 import React from "react";
-import { FiFileText } from "react-icons/fi";
 
+// 만약 부모가 flex-col(세로)이고, ProgramGrid가 main 컨텐츠라면 flex-1로!
 export function ProgramGrid() {
   return (
-    <section className="border rounded bg-white px-2 py-2">
-      <h3 className="font-semibold text-lg mb-2 flex items-center">
-        <FiFileText className="mr-2 text-[#19528c]" />프로그램 목록
-      </h3>
-      <div className="overflow-auto border-t">
-        <table className="min-w-full text-center text-sm">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="px-2 py-1 border">프로그램ID</th>
-              <th className="px-2 py-1 border">프로그램명</th>
-              <th className="px-2 py-1 border">업무구분</th>
-              <th className="px-2 py-1 border">프로그램유형</th>
-              <th className="px-2 py-1 border">용도구분</th>
-              <th className="px-2 py-1 border">기능구분</th>
-              <th className="px-2 py-1 border">사용여부</th>
-              <th className="px-2 py-1 border">URL</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* 예시 데이터 */}
-            <tr>
-              <td className="px-2 py-1 border">BASS2000100</td>
-              <td className="px-2 py-1 border">프로그램 관리</td>
-              <td className="px-2 py-1 border">시스템관리</td>
-              <td className="px-2 py-1 border">window</td>
-              <td className="px-2 py-1 border">일반</td>
-              <td className="px-2 py-1 border">관리기능</td>
-              <td className="px-2 py-1 border">Y</td>
-              <td className="px-2 py-1 border">/pgm/manage</td>
-            </tr>
-          </tbody>
-        </table>
+    <section className="w-full rounded border border-gray-200 bg-white mb-2 shadow-sm flex flex-col flex-1 min-h-0">
+      <div className="flex items-center px-3 py-2 border-b bg-gray-50">
+        <span className="font-semibold text-sm text-gray-700">프로그램 목록</span>
+      </div>
+      {/* 이 영역이 flex-1이므로 아래로 쫙~ */}
+      <div className="flex-1 min-h-[140px] text-gray-400 flex items-center justify-center">
+        {/* 실제 그리드 라이브러리 연결 or 데이터 매핑 */}
+        그리드 영역 (미구현)
       </div>
     </section>
   );

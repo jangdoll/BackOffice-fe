@@ -50,7 +50,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   userAuth: {
     auth_inq: true,
     auth_new: true,
-    auth_save: false,
+    auth_save: true,
     auth_excel: true,
     auth_del: false,
     always: true,

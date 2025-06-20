@@ -8,9 +8,7 @@ export default function ProgramManagerPage() {
     <div className="flex flex-col w-full h-full">
       <PageToolbar />
       <SearchView />
-      <div className="mt-4 mb-6">
-        <ProgramBasicInfo />
-      </div>
+      <ProgramBasicInfo />
       <ProgramGrid />
     </div>
   );

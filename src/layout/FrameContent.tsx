@@ -15,7 +15,7 @@ export default function FrameContent() {
   return (
     <main
       ref={mainRef}
-      className="flex-1 px-4 py-6 bg-gray-50 min-h-0 overflow-auto"
+      className="flex-1 px-3 pt-3 bg-gray-50 min-h-0 overflow-auto"
       style={{ height: '100%', maxHeight: '100%' }}
     >
       <Outlet />
