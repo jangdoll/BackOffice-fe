@@ -66,7 +66,6 @@ export function ProgramBasicInfo() {
               type="text"
               value={pgmId}
               onChange={e => setPgmId(e.target.value)}
-              className="w-full border border-gray-300 rounded-none px-2 py-0.5 text-xs h-[30px] bg-gray-100 focus:outline-[#2563eb]"
               maxLength={50}
               readOnly
             />
@@ -76,13 +75,11 @@ export function ProgramBasicInfo() {
               type="text"
               value={pgmNm}
               onChange={e => setPgmNm(e.target.value)}
-              className="w-full border border-gray-300 rounded-none px-2 py-0.5 text-xs h-[30px] focus:outline-[#2563eb]"
               maxLength={50}
             />
           </Field>
           <Field label="업무구분">
             <select
-              className="w-full border border-gray-300 rounded-none px-2 py-0.5 text-xs h-[30px] focus:outline-[#2563eb]"
               value={biz}
               onChange={e => setBiz(e.target.value)}
             >
@@ -93,7 +90,6 @@ export function ProgramBasicInfo() {
           </Field>
           <Field label="프로그램유형">
             <select
-              className="w-full border border-gray-300 rounded-none px-2 py-0.5 text-xs h-[30px] focus:outline-[#2563eb]"
               value={pgmType}
               onChange={e => setPgmType(e.target.value)}
             >
@@ -107,7 +103,6 @@ export function ProgramBasicInfo() {
         <div className="flex gap-1">
           <Field label="용도구분">
             <select
-              className="w-full border border-gray-300 rounded-none px-2 py-0.5 text-xs h-[30px] focus:outline-[#2563eb]"
               value={purpose}
               onChange={e => setPurpose(e.target.value)}
             >
@@ -118,7 +113,6 @@ export function ProgramBasicInfo() {
           </Field>
           <Field label="기능구분">
             <select
-              className="w-full border border-gray-300 rounded-none px-2 py-0.5 text-xs h-[30px] focus:outline-[#2563eb]"
               value={func}
               onChange={e => setFunc(e.target.value)}
             >
@@ -142,7 +136,6 @@ export function ProgramBasicInfo() {
               type="text"
               value={url}
               onChange={e => setUrl(e.target.value)}
-              className="w-full border border-gray-300 rounded-none px-2 py-0.5 text-xs h-[30px] focus:outline-[#2563eb]"
               maxLength={200}
             />
           </Field>
@@ -150,7 +143,14 @@ export function ProgramBasicInfo() {
         {/* 3행: 기준버튼 */}
         <div className="flex gap-1">
           <div className="flex w-full">
-            <div className="flex items-center justify-center bg-gray-400 text-white text-xs font-semibold w-[72px] min-w-[72px] h-[30px] border border-gray-300">
+            <div className="flex-shrink-0 flex items-center justify-center
+          px-2 h-[32px]
+          text-xs font-semibold
+          bg-gray-300 border border-gray-400 rounded-l
+          text-gray-800
+          whitespace-nowrap
+        "
+        style={{ minWidth: 90 }}>
               기준버튼
             </div>
             <div className="flex items-center px-2 bg-gray-50 h-[30px] border border-gray-300 flex-1">
@@ -178,7 +178,14 @@ export function ProgramBasicInfo() {
         {/* 4행: 관리버튼 */}
         <div className="flex gap-1">
           <div className="flex w-full">
-            <div className="flex items-center justify-center bg-gray-400 text-white text-xs font-semibold w-[72px] min-w-[72px] h-[30px] border border-gray-300">
+            <div className="flex-shrink-0 flex items-center justify-center
+          px-2 h-[32px]
+          text-xs font-semibold
+          bg-gray-300 border border-gray-400 rounded-l
+          text-gray-800
+          whitespace-nowrap
+        "
+        style={{ minWidth: 90 }}>
               관리버튼
             </div>
             <div className="flex items-center px-2 bg-gray-50 h-[30px] border border-gray-300 flex-1">
