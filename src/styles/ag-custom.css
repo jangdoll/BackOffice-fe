@@ -1,0 +1,160 @@
+/* ag-Grid alpine 테마 Tailwind-style full custom */
+
+.ag-theme-alpine {
+  --ag-foreground-color: #222;
+  --ag-background-color: #f9fafb;
+  --ag-header-background-color: #f3f4f6;
+  --ag-header-foreground-color: #2563eb;
+  --ag-row-hover-color: #e7eaf8;
+  --ag-border-color: #e5e7eb;
+  --ag-row-border-color: #e5e7eb;
+  --ag-font-size: 14px;
+  --ag-selected-row-background-color: #e0eaff;
+  --ag-header-height: 40px;
+  --ag-row-height: 38px;
+  --ag-border-radius: 0.75rem;
+  font-family: 'Pretendard', 'Segoe UI', 'Apple SD Gothic Neo', 'sans-serif';
+  border-radius: var(--ag-border-radius) !important;
+  border: 1px solid var(--ag-border-color) !important;
+  overflow: hidden;
+  box-shadow: 0 2px 8px 0 #e5e7eb99;
+}
+
+.ag-theme-alpine .ag-root-wrapper {
+  border-radius: 0.75rem !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.ag-theme-alpine .ag-header {
+  background: #f3f4f6 !important;
+  color: #2563eb !important;
+  font-weight: 700;
+  border-bottom: 1.5px solid #e5e7eb !important;
+  letter-spacing: 0.02em;
+}
+
+.ag-theme-alpine .ag-header-cell {
+  font-size: 15px;
+  background: #f3f4f6 !important;
+  color: #2563eb !important;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-right: 1px solid #e5e7eb !important;
+}
+.ag-theme-alpine .ag-header-cell:last-child {
+  border-right: none !important;
+}
+
+/* 정렬 아이콘 */
+.ag-theme-alpine .ag-header-cell .ag-sort-ascending-icon,
+.ag-theme-alpine .ag-header-cell .ag-sort-descending-icon,
+.ag-theme-alpine .ag-header-cell .ag-sort-none-icon {
+  color: #2563eb !important;
+  opacity: 0.7;
+  margin-left: 2px;
+  font-size: 1em;
+}
+
+/* 체크박스 스타일 */
+.ag-theme-alpine .ag-checkbox-input-wrapper {
+  border-radius: 0.25rem;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  width: 18px;
+  height: 18px;
+}
+.ag-theme-alpine .ag-checkbox-input-wrapper input:checked + .ag-checkbox-checkmark {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.ag-theme-alpine .ag-row {
+  border-bottom: 1px solid #e5e7eb !important;
+  background: #fff;
+  transition: background 0.15s;
+}
+.ag-theme-alpine .ag-row.ag-row-hover {
+  background: #e7eaf8 !important;
+}
+
+/* ✅ 선택된 행 전체 강조 */
+.ag-theme-alpine .ag-row-selected {
+  background: #e0eaff !important;
+}
+.ag-theme-alpine .ag-row-selected .ag-cell {
+  background: #e0eaff !important;
+  color: #2563eb !important;
+  font-weight: 600;
+}
+
+.ag-theme-alpine .ag-cell {
+  font-size: 14px;
+  color: #374151;
+  padding: 0 10px;
+  /* background: transparent; <<== 이 줄 삭제! */
+  border-right: 1px solid #f3f4f6;
+  transition: background 0.1s;
+}
+.ag-theme-alpine .ag-cell:last-child {
+  border-right: none;
+}
+
+.ag-theme-alpine .ag-cell-focus {
+  border: 1.5px solid #2563eb !important;
+  box-shadow: 0 0 0 1.5px #2563eb33;
+  background: #e7eaf8 !important;
+}
+
+.ag-theme-alpine .ag-row-even {
+  background: #fafbfc;
+}
+.ag-theme-alpine .ag-row-odd {
+  background: #fff;
+}
+
+/* row action hover */
+.ag-theme-alpine .ag-cell:not(.ag-cell-range-selected):hover {
+  background: #f0f6fd !important;
+}
+
+/* 스크롤바 커스텀 (Chrome/Edge/Safari) */
+.ag-theme-alpine ::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+.ag-theme-alpine ::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 8px;
+}
+.ag-theme-alpine ::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+.ag-theme-alpine .ag-overlay-loading-center {
+  background: #fff !important;
+  color: #2563eb !important;
+  font-weight: 600;
+}
+
+/* no-data 스타일 */
+.ag-theme-alpine .ag-overlay-no-rows-center {
+  background: #fff !important;
+  color: #b0b0b0 !important;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* 필터/도구 패널도 살짝 커스텀(선택적) */
+.ag-theme-alpine .ag-panel {
+  background: #f9fafb !important;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb !important;
+}
+
+.ag-theme-alpine .ag-icon {
+  color: #2563eb !important;
+  font-size: 1.1em;
+}
