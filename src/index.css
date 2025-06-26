@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input[readonly] {
+  background: #f3f4f6;       /* 연회색 배경 */
+  color: #888;               /* 텍스트 연하게 */
+  cursor: not-allowed;       /* 마우스 커서 금지표시 */
+  border-color: #d1d5db;     /* 경계선 연하게 */
+  opacity: 1;                /* 불투명도 유지 */
+}
