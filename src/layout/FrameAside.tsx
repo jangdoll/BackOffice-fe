@@ -19,7 +19,7 @@ const MENU_MAP: Record<string, MenuItem[]> = {
       children: [
         { label: "통합코드등록", to: "/dashboard" },
         { label: "상권지역(마케팅)", to: "/sale" },
-        { label: "세금정보관리", to: "/tax" },
+        { label: "세금정보관리", to: "/test" },
       ],
     },
     {

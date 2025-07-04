@@ -6,7 +6,16 @@ import { PageButton } from "./PageButton";
 import { useTabStore } from "../store/tabStore";
 import { useAuthStore } from "../store/authStore";
 
-export function PageToolbar() {
+type PageToolbarProps = {
+  onSearch?: () => void;
+  onNew?: () => void;
+  onSave?: () => void;
+  onExcel?: () => void;
+  onDel?: () => void;
+  // ...다른 버튼에 맞게 추가
+};
+
+export function PageToolbar({ onSearch, onNew, onSave, onExcel, onDel }: PageToolbarProps) {
   const location = useLocation();
   const currentPath = location.pathname;
   const { closeTab } = useTabStore();
@@ -35,7 +44,12 @@ export function PageToolbar() {
             icon={btn.icon}
             color={btn.color}
             onClick={() => {
-              if (btn.key === "close") closeTab(currentPath);
+              if (btn.key === "search" && onSearch) onSearch();
+              else if (btn.key === "new" && onNew) onNew();
+              else if (btn.key === "save" && onSave) onSave();
+              else if (btn.key === "excel" && onExcel) onExcel();
+              else if (btn.key === "del" && onDel) onDel();
+              else if (btn.key === "close") closeTab(currentPath);;
             }}
           />
         ))}
