@@ -9,3 +9,7 @@ input[readonly] {
   border-color: #d1d5db;     /* 경계선 연하게 */
   opacity: 1;                /* 불투명도 유지 */
 }
+
+html, body, #root {
+  height: 100%;
+}

@@ -7,5 +7,6 @@ export const menus = [
   { key: 'edi', label: '협력사EDI', path: '/edi' },
   { key: 'mymenu', label: '마이메뉴', path: '/mymenu' },
   { key: 'bass20001', label: '프로그램 관리', path: '/bass20001' },
-  { key: 'test', label: '세금정보관리', path: '/test' }
+  { key: 'test', label: '세금정보관리', path: '/test' },
+  { key: 'baos13009', label: '세금정보관리', path: '/baos13009' }
 ];

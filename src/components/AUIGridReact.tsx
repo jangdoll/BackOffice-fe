@@ -10,9 +10,12 @@ import * as IGrid from 'aui-grid';
 
 // 프로젝트 경로에 맞게 바꾸세요
 
-import '../../public/AUIGrid/AUIGrid';
-import '../../public/AUIGrid/AUIGridLicense';
-import '../../public/AUIGrid/AUIGrid_style.css';
+import '../AUIGrid/AUIGrid';
+import '../AUIGrid/AUIGridLicense';
+import '../AUIGrid/AUIGrid_style.css';
+
+// AUIGrid 엑셀, PDF 바로 다운로딩 처리 모듈
+import FileSaver from 'file-saver';
 
 // AUIGrid.defaultProps 에 공통적인 속성을 설정합니다.
 // AUIGrid.defaultProps 설정은 AUIGrid.js 정의 이후 선언해야 합니다.
@@ -30,6 +33,9 @@ if (typeof window !== 'undefined' && typeof window.AUIGrid !== 'undefined') {
 		simplifySelectionEvent: true
 	};
 }
+
+//FileSaver 전역처리화
+window.saveAs = FileSaver.saveAs;
 
 // 이 아래 소스는 절대 수정하지 마세요.
 interface IProps {

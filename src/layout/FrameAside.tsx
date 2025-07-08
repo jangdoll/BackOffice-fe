@@ -31,6 +31,21 @@ const MENU_MAP: Record<string, MenuItem[]> = {
     },
     { label: "마이메뉴", to: "/mymenu" },
   ],
+  "영업지원관리": [
+    {
+      label: "고객관리",
+      children: [
+        { label: "회원관리",
+          children: [
+            { label: "지역별매출회원현황", to: "/baos13009" },
+          ],
+        },
+        { label: "포인트운영"},
+        { label: "포인트현황"},
+        { label: "주차관리"},
+      ],
+    },
+  ],
   "시스템관리": [
     {
       label: "프로그램관리",

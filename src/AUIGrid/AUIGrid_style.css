@@ -475,11 +475,12 @@
 /*디폴트 푸터 스타일 */
 .aui-grid-default-footer {
 	position: relative !important;
-	background: #eeeeee;
+	/* background: #eeeeee; */
+	background: #ffe7e2;
 	border: 1px solid #cccccc;
 	border-right: none;
 	border-left: none;
-	font-weight: bold;
+	/* font-weight: bold; */
 	font-size: 1em;
 	color: #000000;
 	text-align: center;
@@ -731,6 +732,11 @@
 	border-top: 4px solid #990085;
 	border-bottom: 4px solid transparent;
 	border-right: 4px solid transparent;
+}
+
+/* 수정한 셀 로우 표시 스타일 */
+tr:has(.aui-grid-cell-edited-marker) .aui-grid-default-column {
+  color: #0000FF;
 }
 
 /* 엑스트차 체크박스 체크된 행 스타일*/
@@ -2139,24 +2145,55 @@
 
 /* 계층형인 경우 Depth 에 따른 ROW 간 스타일 */
 .aui-grid-row-depth1-style {
-	font-weight: bold;
-	color: #eaeaea;
-	background: #5d5d5d;
+	/* font-weight: bold; */
+	color: #000;
+	background: #cce6e6;
 }
 
 .aui-grid-row-depth2-style {
-	font-weight: bold;
-	color: #5d5d5d;
-	background: #bdbdbd;
+	/* font-weight: bold; */
+	color: #000;
+	background: #ffffe7;
 }
 
 .aui-grid-row-depth3-style {
-	font-weight: bold;
-	color: #5d5d5d;
-	background: #eaeaea;
+	/* font-weight: bold; */
+	color: #000;
+	background: #D4FAFA;
 }
 
 .aui-grid-row-depth-default-style {
-	font-weight: bold;
+	/* font-weight: bold; */
 	color: #000;
+}
+
+.aui-grid-text-align-left {
+	text-align: left;
+}
+
+.aui-grid-text-align-right {
+	text-align: right;
+}
+
+.aui-grid-text-align-center {
+	text-align: center;
+}
+
+/* 푸터 커스텀 summary total  스타일 */
+.aui-grid-custom-sum-total-left {
+	/* font-weight: bold; */
+	color: #000;
+	text-align: left;
+}
+
+.aui-grid-custom-sum-total-right {
+	/* font-weight: bold; */
+	color: #000;
+	text-align: right;
+}
+
+.aui-grid-custom-sum-total-center {
+	/* font-weight: bold; */
+	color: #000;
+	text-align: center;
 }
