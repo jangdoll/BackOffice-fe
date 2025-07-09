@@ -7,6 +7,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import ProgramManagerPage from "../pages/ProgramManagerPage";
 import ProgramListPage from "../pages/ProgramListPage";
 import Baos13009 from "../pages/Baos13009";
+import Bahq1000100 from "../pages/BAHQ1000100";
 
 function RequireAuth({ children }: { children: React.ReactNode }) {
   const token = useAuthStore(s => s.token);
@@ -29,6 +30,7 @@ export default function AppRoutes() {
         <Route path="sale" element={<NotFoundPage />} />
         <Route path="bass20001" element={<ProgramManagerPage />} />
         <Route path="baos13009" element={<Baos13009 />} />
+        <Route path="bahq10001" element={<Bahq1000100 />} />
         <Route path="test" element={<ProgramListPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

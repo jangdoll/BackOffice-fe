@@ -17,7 +17,7 @@ const MENU_MAP: Record<string, MenuItem[]> = {
     {
       label: "공통정보",
       children: [
-        { label: "통합코드등록", to: "/dashboard" },
+        { label: "통합코드등록", to: "/bahq10001" },
         { label: "상권지역(마케팅)", to: "/sale" },
         { label: "세금정보관리", to: "/test" },
       ],

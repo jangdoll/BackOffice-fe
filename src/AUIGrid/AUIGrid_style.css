@@ -735,9 +735,9 @@
 }
 
 /* 수정한 셀 로우 표시 스타일 */
-tr:has(.aui-grid-cell-edited-marker) .aui-grid-default-column {
+/* tr:has(.aui-grid-cell-edited-marker) .aui-grid-default-column {
   color: #0000FF;
-}
+} */
 
 /* 엑스트차 체크박스 체크된 행 스타일*/
 .aui-grid-extra-checked-row {
@@ -746,7 +746,8 @@ tr:has(.aui-grid-cell-edited-marker) .aui-grid-default-column {
 
 /* 페이징 패널 스타일 */
 .aui-grid-paging-panel {
-	text-align: center;
+	text-align: left;
+	padding-left: 10px;
 	background: #eaeaea;
 	background: -webkit-linear-gradient(top, #f8f8f8, #eaeaea);
 	background: -moz-linear-gradient(top, #f8f8f8, #eaeaea);
@@ -760,14 +761,14 @@ tr:has(.aui-grid-cell-edited-marker) .aui-grid-default-column {
 /* 페이징 넘버링 */
 .aui-grid-paging-panel .aui-grid-paging-number {
 	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 1em;
+	/* border: 1px solid #ccc; */
+	/* border-radius: 0.4em; */
 	min-width: 2em;
 	line-height: 2em;
-	font-size: 1em;
+	font-size: 0.8em;
 	font-weight: bold;
 	text-align: center;
-	margin: 4px 2px 0 2px;
+	margin: 6px 2px 0 2px;
 }
 
 .aui-grid-paging-panel .aui-grid-paging-number:hover {
@@ -820,6 +821,8 @@ tr:has(.aui-grid-cell-edited-marker) .aui-grid-default-column {
 	position: absolute;
 	right: 0px;
 	margin: 8px 10px 0 0;
+	font-size:13px;
+	font-weight:bold;
 }
 
 /* 페이징 행 개수 변경 select */

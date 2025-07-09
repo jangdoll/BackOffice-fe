@@ -85,6 +85,8 @@ export default function Baos13009() {
             groupingSummary: {
                 dataFields: ['AREA_VNOR_SALE_AMT', 'COMPONENT_RATE', 'S0', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'NATIVE_AMT', 'FOREIGNER_AMT']
 		    },
+            // groupingSummary 속성을 설정하였을 때 합계 필드에 출력되는 텍스트를 지정합니다.@defaultValue "합계" 
+            summaryText:'소계',
             // 그룹핑 후 셀 병함 실행
             enableCellMerge: true,
             // enableCellMerge 할 때 실제로 rowspan 적용 시킬지 여부

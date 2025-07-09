@@ -54,5 +54,14 @@ export const MENU_CONFIG: MenuConfig[] = [
       { key: "close", label: "닫기", icon: FiX, color: "btn-red", auth: "always" },
     ],
   },
+  {
+    path: "/bahq10001",
+    label: "통합코드등록",
+    buttons: [
+      { key: "search", label: "조회", icon: FiSearch  , color: "btn-blue" , auth: "auth_inq"   },
+      { key: "save"  , label: "저장", icon: FiSave    , color: "btn-green", auth: "auth_save"  },
+      { key: "close" , label: "닫기", icon: FiX       , color: "btn-red"  , auth: "always"     },
+    ],
+  },
   // ...다른 메뉴
 ];

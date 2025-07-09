@@ -9,8 +9,6 @@ import SelectBox from "../components/SelectBox";
 import AUIGrid from "../components/AUIGridReact";
 import * as IGrid from 'aui-grid';
 import { ProgramBasicInfo } from "../components/ProgramBasicInfo";
-// AUIGrid 엑셀, PDF 바로 다운로딩 처리 모듈
-import FileSaver from 'file-saver';
 import dayjs from "dayjs";
 
 export default function ProgramListPage() {
@@ -67,7 +65,7 @@ export default function ProgramListPage() {
                 keyField: 'value', // key 에 해당되는 필드명
                 valueField: 'label', // value 에 해당되는 필드명
                 listFunction: () => {
-                    return makeSelectOptions(sysBizTpData, "CODE", "LABEL");
+                    return sysBizTpRef.current;
                 },
                 showEditorBtnOver : true
             }
@@ -89,7 +87,7 @@ export default function ProgramListPage() {
                 keyField: 'value', // key 에 해당되는 필드명
                 valueField: 'label', // value 에 해당되는 필드명
                 listFunction: () => {
-                    return makeSelectOptions(pgmTpData, "CODE", "LABEL");
+                    return pgmTpRef.current;
                 },
                 showEditorBtnOver : true,
             } ,
@@ -111,7 +109,7 @@ export default function ProgramListPage() {
                 keyField: 'value', // key 에 해당되는 필드명
                 valueField: 'label', // value 에 해당되는 필드명
                 listFunction: () => {
-                    return makeSelectOptions(pgmPrpsTpData, "CODE", "LABEL")
+                    return pgmPrpsTpRef.current;
                 } ,
                 showEditorBtnOver : true,
             },
@@ -133,7 +131,7 @@ export default function ProgramListPage() {
                 keyField: 'value', // key 에 해당되는 필드명
                 valueField: 'label', // value 에 해당되는 필드명
                 listFunction: () => {
-                    return makeSelectOptions(pgmFncTpData, "CODE", "LABEL")
+                    return pgmFncTpRef.current;
                 },
                 showEditorBtnOver : true,
             } 
@@ -147,22 +145,52 @@ export default function ProgramListPage() {
 		editable: true,
 		width: '100%',
 		height: 475,
+        // 셀 선택모드 'singleCell' | 'singleRow' | 'multipleCells' | 'multipleRows' | 'none';
 		selectionMode: 'singleRow',
         // 행 체크박스
         showRowCheckColumn: true,
+        // editable 을 true 로 설정한 경우 삭제, 수정, 추가 행에 대한 정보가 이 칼럼에 아이콘을 출력
+        showStateColumn:true,
         // 페이징
         usePaging: true,
         // 페이징을 사용하는 경우 페이징의 방식을 지정합니다. 유효값은 "default", "simple", "button"
         pagingMode:'default', // 안써도됨
         // 한 페이지에 출력되는 행 수 지정(최대값 500)
-        pageRowCount: 200,
+        pageRowCount: 10,
         // 페이징을 사용할 때 1 페이지에 출력할 행의 개수를 변경할 수 있는 select UI 를 하단에 출력할지 여부를 지정합니다.
         showPageRowSelect: true,
         // 페이징의 행의 개수를 변경할 수 있는 select 의 option들을 지정합니다.
-        pageRowSelectValues:[50, 100, 150, 200, 250]
+        pageRowSelectValues:[10, 50, 100, 150, 200, 250]
 	};
 
     const grid = myGrid.current as AUIGrid;
+
+    // 그리드 행 추가 및 행 삭제
+    const handleAddRow = () => {
+        const newRow = { 
+            PGM_ID: "", 
+            PGM_NM: "", 
+            SYS_BIZ_TP: "", 
+            PGM_TP: "", 
+            PGM_PRPS_TP: "",  
+            PGM_FNC_TP: "",
+            USE_YN: 0,
+            PGM_URL: ""
+        };
+        grid.addRow(newRow, "last");
+    };
+
+    const handleDeleteRow = () => {
+        const selectedRows = grid.getSelectedRowIndexes();
+        if (selectedRows.length > 0) {
+            // 여러 개 삭제: reverse 정렬 후 삭제 권장
+            selectedRows.sort((a, b) => b - a).forEach(idx => {
+            grid.removeRow(idx);
+            });
+        } else {
+            alert("삭제할 행을 선택하세요.");
+        }
+    };
     
     useEffect(() => {
         if (searchData) {
@@ -183,6 +211,8 @@ export default function ProgramListPage() {
                 // console.log(myGrid.current?.getGridData())
                 console.log(myGrid.current?.getEditedRowItems())
                 console.log(myGrid.current?.getCheckedRowItemsAll())
+                console.log(myGrid.current?.getAddedRowItems());
+                console.log(myGrid.current?.getRemovedItems());
             }}
             onExcel={() => grid.exportToXlsx({  fileName: '프로그램 목록_' + dayjs().format('YYYYMMDDHHmmss'), isRowStyleFront: false, progressBar: true }) }
         />
@@ -227,8 +257,22 @@ export default function ProgramListPage() {
         </section>
         <ProgramBasicInfo />
         <section className="w-full h-full flex flex-col rounded border border-gray-200 bg-white mb-2 shadow-sm overflow-hidden flex-1 min-h-0">
-            <div className="flex items-center px-3 py-2 border-b bg-gray-50 flex-shrink-0">
+            <div className="flex items-center px-3 py-1 border-b bg-gray-50 flex-shrink-0">
                 <span className="font-semibold text-sm text-gray-700">프로그램 목록</span>
+                <div className="ml-auto flex gap-1">
+                    <button
+                    className="px-3 py-1 text-sm rounded-lg bg-white border border-black text-black font-medium hover:bg-gray-200 transition"
+                    onClick={handleAddRow}
+                    >
+                    행추가
+                    </button>
+                    <button
+                    className="px-3 py-1 text-sm rounded-lg bg-white border border-black text-black font-medium hover:bg-gray-200 transition"
+                    onClick={handleDeleteRow}
+                    >
+                    행삭제
+                    </button>
+                </div>
             </div>
             <div className="flex-1 min-h-0">
                 <div className="ag-theme-alpine h-full w-full">
