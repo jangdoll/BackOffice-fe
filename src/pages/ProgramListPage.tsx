@@ -196,12 +196,14 @@ export default function ProgramListPage() {
         if (searchData) {
             grid.setGridData(searchData);
         }
+    }, [searchData, grid]);
 
+    useEffect(() => {
         sysBizTpRef.current  = makeSelectOptions(sysBizTpData , "CODE", "LABEL");
         pgmTpRef.current     = makeSelectOptions(pgmTpData    , "CODE", "LABEL");
         pgmPrpsTpRef.current = makeSelectOptions(pgmPrpsTpData, "CODE", "LABEL");
         pgmFncTpRef.current  = makeSelectOptions(pgmFncTpData , "CODE", "LABEL");
-    }, [searchData, grid]);
+    }, []);
 
   return (
     <div className="flex flex-col w-full h-full">
